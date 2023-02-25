@@ -79,8 +79,12 @@ icons[tab] {
 #navigation {
     list-style-type: none;
     text-align: left;
-  font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
 }
+#viewport #navigation li {
+    margin-bottom: .5em;
+}
+
 #lpartition {
     display: inline-flex;
     align-items: center;
