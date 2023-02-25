@@ -1,0 +1,12 @@
+Host: thesola.io
+
+# this was a triumph
+User-agent: *
+Disallow: _nav.html
+
+# i'm making a note here: huge success
+Disallow: .git*
+Disallow: */assets/*
+
+# it's hard to overstate my satisfaction
+Sitemap: https://thesola.io/sitemap.xml

@@ -57,9 +57,13 @@
 icons {
     font-family: "Fira Code Nerd Font Complete", "Nerd Font";
     display: inline;
+    margin-right: 1rem;
+}
+icons[tab] {
     position: absolute;
     left: 210px;
     margin-left: 10%;
+    margin-right: unset;
 }
 
 #logo {
@@ -137,7 +141,7 @@ a {
   color: var(--ochre);
   text-decoration: none;
 }
-article.project a {
+article.project a, h3 a {
     color: var(--orangeshirt);
 }
 article img {
@@ -172,6 +176,8 @@ pre {
     margin-bottom: 2px;
     white-space: pre-wrap;
 }
+
+small { opacity: 80%; }
 
 /* PAGE CONTENT */
 #termport { margin-top: 40px; }
