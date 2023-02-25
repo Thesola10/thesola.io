@@ -140,7 +140,7 @@ a {
 article.project a {
     color: var(--orangeshirt);
 }
-article.project img {
+article img {
     float: left;
     max-width: 200px;
     margin-right: 1ch;
@@ -218,6 +218,7 @@ pre {
         max-height: 140px;
         height: unset;
     }
+    #logo { width: 35ch; }
 }
 
 /* Navbar starts breaking */
@@ -229,6 +230,12 @@ pre {
 
     #flexport #navlogo img {
         margin-top: -2em;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #flexport #navigation {
+        font-size: 85%
     }
 }
 
@@ -275,5 +282,9 @@ pre {
         margin-top: -30px;
         margin-left: 110px;
         width: 20ch;
+    }
+
+    article img {
+        max-width: 100%;
     }
 }
