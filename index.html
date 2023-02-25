@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Karim Vergnes</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Google and other indexers -->
+    <meta name="title"          content="Karim Vergnes - thesola.io"/>
+    <meta name="description"    content="Software developer, NixOS package maintainer, Linux sysadmin."/>
+
+    <!-- OpenGraph/Facebook -->
+    <meta property="og:type"    content="website"/>
+    <meta property="og:url"     content="https://thesola.io/"/>
+    <meta property="og:title"   content="Karim Vergnes - thesola.io"/>
+    <meta property="og:description"
+                                content="Software developer, NixOS package maintainer, Linux sysadmin."/>
+    <meta property="og:image"   content="https://thesola.io/favicon.png"/>
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="600"/>
+
+    <!-- Twitter (and apparently Discord????) -->
+    <meta property="twitter:card"   content="summary"/>
+    <meta property="twitter:url"    content="https://thesola.io/"/>
+    <meta property="twitter:title"  content="Karim Vergnes - thesola.io"/>
+    <meta property="twitter:description"
+                                    content="Software developer, NixOS package maintainer, Linux sysadmin."/>
+    <meta property="twitter:image"  content="https://thesola.io/favicon.png"/>
+
+</head>
+<body>
+    <div id="viewport">
+        <div id="lpartition">
+          <div id="logo">
+            <img src="signature.png">
+            <p class="tagline" id="tagline">dammit, js broke</p>
+          </div>
+          <ul id="navigation">
+            <li><a href="/about">about</a></li>
+            <li><a href="/contact">contact</a></li>
+            <li><a href="https://blog.thesola.io">blog</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="https://cloud.thesola.io/git/thesola10">configs</a></li>
+          </ul>
+        </div>
+        <br/>
+        <div id="termport">
+            <pre>this site is a work in progress, but it's getting close!</pre>
+            <pre>&#10095; <br></pre>
+        </div>
+    </div>
+
+    <script>
+        const taglines = [
+          //           28ch
+          //<----------------------------> <---------------------------->
+          [ "nix-shell -p peace-quiet",    "TODO: port to flake"         ],
+          [ "#[do_not_crash]",             null                          ],
+          [ "meaningOfLife :: IO ()",      null                          ],
+          [ "paid his dog tax",            null                          ],
+          [ "ザソーラテン",                null                          ],
+          [ "Unregistered HyperCam 2",     null                          ],
+          [ "xkcd/838 compliant",          null                          ],
+          [ "raised by cd-roms",           null                          ],
+          [ "f3 e5 g4 Qh4#",               null                          ],
+          [ "kernel panic - not syncing",  "attempted to kill init!"     ],
+          [ ":() { :|:& }; (:&)",          null                          ],
+          [ "i use arch btw",              null                          ],
+          [ "just one more project",       null                          ],
+          [ "お前の保証はもう、無効です。","your warranty's already void"],
+          [ "What is a sops file?", "A miserable little pile of secrets!"],
+          [ "continuously integrated",     null                          ],
+          [ "rin-chaaaaaaan!",             null                          ],
+          [ "managed to exit vim",         null                          ]
+        ];
+        var tl = document.getElementById("tagline");
+        var ri = Math.floor(Math.random() * taglines.length);
+        tl.textContent = taglines[ri][0];
+        if (taglines[ri][1] !== null) {
+            var tl2 = document.createElement("p")
+
+            console.log("This is an interactive tagline, lucky!");
+            tl2.classList.add("tagline")
+            tl2.classList.add("reveal2")
+            tl2.textContent = taglines[ri][1];
+
+            tl.classList.add("reveal1")
+            tl.insertAdjacentElement('afterend', tl2);
+        }
+    </script>
+</body>
+</html>

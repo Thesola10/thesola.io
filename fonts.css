@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "Fira Code Nerd Font Complete";
+    src: url(fcnf.woff) format('woff'),
+         url(fcnf.ttf)  format('truetype');
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: url(fira.woff) format('woff'),
+         url(fira.ttf)  format('truetype');
+}
+@font-face {
+    font-family: "Fira Sans";
+    src: url(firai.woff) format('woff'),
+         url(firai.ttf)  format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url(mw.woff) format('woff'),
+         url(mw.ttf)  format('truetype');
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwl.woff) format('woff'),
+         url(mwl.ttf)  format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwi.woff) format('woff'),
+         url(mwi.ttf)  format('truetype');
+    font-style: italic;
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwli.woff) format('woff'),
+         url(mwli.ttf)  format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}

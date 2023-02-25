@@ -1,0 +1,58 @@
+name: deploy-to-ipfs
+
+on:
+    push:
+        paths:
+            - '**.elm'
+            - 'assets/**'
+
+jobs:
+    elm-build:
+        name: Build website using Elm
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+            with:
+                submodules: recursive
+
+          - uses: jorelali/setup-elm@v2
+            with:
+                elm-version: 0.19.1
+          - name: Build website with Elm
+            run: make
+          - name: Upload artifact
+            uses: actions/upload-artifact@v2
+            with:
+                name: built-website
+                path: pub
+
+    ipfs-deploy:
+        name: Deploy to IPFS
+        needs: elm-build
+        runs-on: ubuntu-latest
+        environment: IPFS
+        steps:
+          - name: Retrieve built website
+            uses: actions/download-artifact@v2
+            with:
+                name: built-website
+                path: pub
+          - name: Add to Pinata
+            id: pin
+            uses: aquiladev/ipfs-action@v0.1.5
+            with:
+                path: public
+                service: pinata
+                pinataKey: ${{ secrets.PINATA_KEY }}
+                pinataSecret: ${{ secrets.PINATA_SECRET }}
+                pinataPinName: 'thesola.io'
+          - name: Update DNSLink
+            uses: textileio/cloudflare-update-dnslink@v2
+            with:
+                cid: ${{ steps.pin.outputs.hash }}
+            env:
+                RECORD_NAME: '_dnslink'
+                RECORD_DOMAIN: 'thesola.io'
+                CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+                CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONEID }}

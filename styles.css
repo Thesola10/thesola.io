@@ -1,0 +1,279 @@
+@font-face {
+    font-family: "Fira Code Nerd Font Complete";
+    src: url(fcnf.woff) format('woff'),
+         url(fcnf.ttf)  format('truetype');
+}
+
+@font-face {
+    font-family: "Nerd Font";
+    src: url(hnf.ttf)   format('truetype');
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: url(fira.woff) format('woff'),
+         url(fira.ttf)  format('truetype');
+}
+@font-face {
+    font-family: "Fira Sans";
+    src: url(firai.woff) format('woff'),
+         url(firai.ttf)  format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url(mw.woff) format('woff'),
+         url(mw.ttf)  format('truetype');
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwl.woff) format('woff'),
+         url(mwl.ttf)  format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwi.woff) format('woff'),
+         url(mwi.ttf)  format('truetype');
+    font-style: italic;
+}
+@font-face {
+    font-family: "Merriweather";
+    src: url(mwli.woff) format('woff'),
+         url(mwli.ttf)  format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+:root {
+    --bluepants: #0F213B;
+    --orangeshirt: #D07A12;
+    --ochre: #FADD87;
+    --bordeaux: #780129;
+    --steel: #BFBFBF;
+}
+
+icons {
+    font-family: "Fira Code Nerd Font Complete", "Nerd Font";
+    display: inline;
+    position: absolute;
+    left: 210px;
+    margin-left: 10%;
+}
+
+#logo {
+  display: inline-block;
+  height: 200px;
+  width: 48ch;
+  text-align: left;
+  position: relative;
+}
+#logo img {
+    height: 200px;
+}
+#navigation {
+    list-style-type: none;
+    text-align: left;
+  font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+}
+#lpartition {
+    display: inline-flex;
+    align-items: center;
+    height: 260px;
+    margin-top: 20%;
+    flex-direction: row;
+}
+#viewport {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+/* NAVBAR LAYOUT */
+#flexport {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#flexport #navigation {
+    height: 4em;
+    display: inline-block;
+}
+#flexport #navigation li {
+    display: inline-block;
+    padding: 1ch;
+}
+
+#flexport #navlogo {
+    height: 65px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#flexport #navlogo img {
+    height: 65px;
+    margin-top: -1em;
+}
+
+/* EMBEDDED NAVBAR */
+#navbox {
+    width: 80%;
+    max-width: 1200px;
+    height: 120px;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Fira Sans", sans-serif;
+  background-color: var(--bluepants);
+  color: var(--steel);
+  margin: 0;
+}
+a {
+  color: var(--ochre);
+  text-decoration: none;
+}
+article.project a {
+    color: var(--orangeshirt);
+}
+article.project img {
+    float: left;
+    max-width: 200px;
+    margin-right: 1ch;
+    margin-bottom: 20px;
+}
+h1 {
+    font-weight: 300;
+}
+
+h1, h2, h3 {
+    font-family: Merriweather
+}
+h4, h5, h6 {
+    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    margin-bottom: .3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--ochre);
+}
+
+pre, tt {
+    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    font-size: 14px;
+}
+
+pre {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    white-space: pre-wrap;
+}
+
+/* PAGE CONTENT */
+#termport { margin-top: 40px; }
+
+#termport, article {
+  width: 80%;
+  display: inline-block;
+  text-align: left;
+
+  max-width: 1200px;
+  margin-bottom: 3rem;
+}
+#termport > p, article > p {
+  margin: 0;
+}
+
+/* WELCOME TAGLINE */
+.tagline {
+  margin-top: -48px;
+  margin-left: 160px;
+  text-align: left;
+  width: 28ch;
+  position: absolute;
+
+  font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+}
+
+#logo:hover .tagline.reveal1 {
+    opacity: 0%
+}
+.tagline.reveal2 {
+    opacity: 0%
+}
+#logo:hover .tagline.reveal2 {
+    opacity: 100%
+}
+
+/* RESPONSIVE */
+@media screen and (max-height: 720px) {
+    #lpartition {
+        margin-top: 10vh;
+    }
+    #logo, #logo img {
+        max-height: 140px;
+        height: unset;
+    }
+}
+
+/* Navbar starts breaking */
+@media screen and (max-width: 540px) {
+    #flexport #navigation {
+        width: 65%;
+        padding-left: 1.6ch;
+    }
+
+    #flexport #navlogo img {
+        margin-top: -2em;
+    }
+}
+
+/* Reflow welcome logo */
+@media screen and (max-width: 600px) {
+    #termport {
+        width: 90%;
+        margin-top: 80px;
+    }
+    #lpartition {
+        flex-direction: column;
+    }
+    #viewport #navigation {
+        text-align: center;
+        padding: 0;
+        margin-top: 40px;
+        max-width: 90vw;
+    }
+
+    #viewport #navigation li {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    .tagline {
+        margin-left: 150px;
+        width: 22ch;
+    }
+}
+
+/* is this really necessary??? */
+@media screen and (max-width: 480px) {
+    #logo, #logo img {
+        max-height: 140px;
+        height: unset;
+        text-align: left;
+    }
+    #lpartition {
+        height: unset;
+        width: inherit;
+    }
+    .tagline {
+        font-size: .9em;
+        margin-top: -30px;
+        margin-left: 110px;
+        width: 20ch;
+    }
+}
