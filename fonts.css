@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    font-family: "Nerd Font";
+    src: url(hnf.woff)  format('woff'),
+         url(hnf.ttf)   format('truetype');
+}
+
+@font-face {
     font-family: "Fira Sans";
     src: url(fira.woff) format('woff'),
          url(fira.ttf)  format('truetype');
