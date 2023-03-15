@@ -10,48 +10,37 @@ body {
 
 /* NAVBAR LAYOUT */
 #viewport {
-    padding-top: 10px;
+    padding-top: 2em;
     padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: 96px auto;
+    column-gap: 3ch;
 }
 
 nav {
-    height: 4em;
-    display: inline-block;
-    margin-left: 2ch;
+    grid-column: 2;
+    align-self: center;
 }
 nav a {
     display: inline-block;
     padding: 1ch;
+    padding-top: 0;
 }
 
 #logo {
-    height: 65px;
-    margin-top: 20px;
-    display: inline-block;
-    vertical-align: middle;
+    width: 96px;
+    grid-column: 1;
 }
 #logo img {
-    height: 65px;
-    margin-top: -1em;
+    width: 96px;
 }
 
 
 /********** RESPONSIVE **********/
 /* Navbar starts breaking */
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 340px) {
     nav {
-        width: 65%;
-        padding-left: 1.6ch;
-    }
-
-    #logo img {
-        margin-top: -2em;
-    }
-}
-
-@media screen and (max-width: 330px) {
-    nav {
-        font-size: 85%
+        font-size: 85%;
     }
 }
 

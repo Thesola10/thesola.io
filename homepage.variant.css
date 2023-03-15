@@ -4,15 +4,15 @@
  */
 
 body {
-  background-color: var(--bluepants);
-  color: var(--steel);
-  margin: 0;
+    background-color: var(--bluepants);
+    color: var(--steel);
+    margin: 0;
 }
 
 #viewport {
-  position: absolute;
-  text-align: center;
-  overflow-y: scroll;
+    position: absolute;
+    text-align: center;
+    overflow-y: scroll;
 }
 
 /* EMBEDDED NAVBAR */
@@ -26,26 +26,26 @@ body {
 #termport { margin-top: 40px; }
 
 #termport, article {
-  width: 80%;
-  display: inline-block;
-  text-align: left;
+    width: 80%;
+    display: inline-block;
+    text-align: left;
 
-  max-width: 1200px;
-  margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-bottom: 3rem;
 }
 #termport > p, article > p {
-  margin: 0;
+    margin: 0;
 }
 
 /* WELCOME TAGLINE */
 .tagline {
-  margin-top: -48px;
-  margin-left: 160px;
-  text-align: left;
-  width: 28ch;
-  position: absolute;
+    margin-top: -48px;
+    margin-left: 18ch;
+    text-align: left;
+    width: 28ch;
+    position: absolute;
 
-  font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    font-family: var(--font-mono);
 }
 
 #logo:hover .tagline.reveal1 {
@@ -59,11 +59,11 @@ body {
 }
 
 #logo {
-  display: inline-block;
-  height: 200px;
-  width: 48ch;
-  text-align: left;
-  position: relative;
+    display: inline-block;
+    height: 200px;
+    width: 52ch;
+    text-align: left;
+    position: relative;
 }
 #logo img {
     height: 200px;
@@ -80,7 +80,9 @@ nav a {
     margin-top: 20%;
     flex-direction: row;
 }
-
+article.project a, h3 a {
+    color: var(--hi-accent);
+}
 
 
 /********** RESPONSIVE **********/

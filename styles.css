@@ -3,6 +3,8 @@
 /********** Colors and variants **********/
 :root {
     --bluepants: #0F213B;
+    --bluepants2: #18345E;
+    --bluepants3: #214881;
     --orangeshirt: #D07A12;
     --ochre: #FADD87;
     --bordeaux: #780129;
@@ -23,7 +25,7 @@
     --backdrop: white;
     --text: black;
     --hi-link: var(--bordeaux);
-    --hi-hdr: var(--bluepants);
+    --hi-hdr: var(--bluepants2);
     --hi-h3: var(--bordeaux);
     --hi-accent: var(--bordeaux);
 }
@@ -38,8 +40,11 @@
     }
 }
 
+
+/********** Common elements **********/
+
 icons {
-    font-family: "Fira Code Nerd Font Complete", "Nerd Font";
+    font-family: var(--font-icons);
     display: inline;
     margin-right: 1rem;
 }
@@ -53,33 +58,30 @@ icons[tab] {
 nav {
     list-style-type: none;
     text-align: left;
-    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    font-family: var(--font-mono);
 }
 nav a {
     display: list-item;
-    list-style-position: inside;
 }
 
 #viewport {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 
-  background-color: var(--backdrop);
+    background-color: var(--backdrop);
+    color: var(--text);
 }
 
 body {
-  overflow: hidden;
-  font-family: "Fira Sans", sans-serif;
-  color: var(--text);
+    overflow: hidden;
+    font-family: var(--font-sans);
 }
 a {
-  color: var(--hi-link);
-  text-decoration: none;
+    color: var(--hi-link);
+    text-decoration: none;
 }
-article.project a, h3 a {
-    color: var(--hi-accent);
-}
+
 article img {
     float: left;
     max-width: 200px;
@@ -91,10 +93,10 @@ h1 {
 }
 
 h1, h2, h3 {
-    font-family: Merriweather
+    font-family: var(--font-display);
 }
 h4, h5, h6 {
-    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    font-family: var(--font-mono);
     margin-bottom: .3em;
 }
 
@@ -107,8 +109,8 @@ h3, h4, h5, h6 {
 }
 
 pre, tt {
-    font-family: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
-    font-size: 14px;
+    font-size: 94%;
+    font-family: var(--font-mono);
 }
 
 pre {

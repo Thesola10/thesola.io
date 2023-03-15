@@ -46,3 +46,10 @@
     font-weight: 300;
     font-style: italic;
 }
+
+:root {
+    --font-display: "Merriweather", serif;
+    --font-sans: "Fira Sans", sans-serif;
+    --font-mono: "Fira Code Nerd Font Complete", "Fira Code", "Fira Mono", monospace;
+    --font-icons: "Nerd Font", "Fira Code Nerd Font Complete";
+}
