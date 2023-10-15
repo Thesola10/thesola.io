@@ -1,0 +1,22 @@
+{
+    "subject": "acct:thesola10@shelter.moe",
+    "aliases":
+    [
+        "https://shelter.moe/@thesola10",
+        "https://shelter.moe/users/thesola10"
+    ],
+    "links":
+    [
+        {   "rel": "http://webfinger.net/rel/profile-page",
+            "type": "text/html",
+            "href": "https://shelter.moe/@thesola10"
+        },
+        {   "rel": "self",
+            "type": "application/activity+json",
+            "href": "https://shelter.moe/users/thesola10"
+        },
+        {   "rel": "http://ostatus.org/schema/1.0/subscribe",
+            "template": "https://shelter.moe/authorize_interaction?uri={uri}"
+        }
+    ]
+}
