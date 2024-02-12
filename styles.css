@@ -47,6 +47,7 @@ icons {
     font-family: var(--font-icons);
     display: inline;
     margin-right: 1rem;
+    font-weight: normal !important;
 }
 icons[tab] {
     position: absolute;

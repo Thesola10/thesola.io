@@ -73,6 +73,19 @@ nav a {
     margin-bottom: .5em;
 }
 
+nav#nav1 {
+    font-size: 1.3rem;
+}
+
+nav#nav2 {
+    text-align: center;
+    padding: 0;
+}
+nav#nav2 a {
+    display: inline-block;
+    padding: 5px;
+}
+
 #lpartition {
     display: inline-flex;
     align-items: center;
@@ -80,8 +93,47 @@ nav a {
     margin-top: 20%;
     flex-direction: row;
 }
-article.project a, h3 a {
+
+h3 a {
     color: var(--hi-accent);
+}
+
+article.project {
+    display: inline-flex;
+    border-radius: 7px;
+    box-shadow: 0 8px 11px 0 rgba(.5,.5,.5,.4);
+    padding: 10px;
+    position: relative;
+    min-height: 90px;
+
+    background-color: var(--bluepants2);
+}
+article.project > p {
+    align-self: center;
+    position: absolute;
+    left: 220px;
+    right: 60px;
+}
+article.project arrow:before {
+    content: "\f105";
+}
+article.project arrow {
+    font-family: var(--font-icons);
+    font-size: 2em;
+    position: absolute;
+    top: calc(50% - 1ch);
+    right: 1em;
+}
+article.project icons {
+    font-size: 1.3em;
+}
+article.project > a {
+    align-self: center;
+}
+article.project img {
+    max-height: 90px;
+    align-self: center;
+    margin-bottom: unset;
 }
 
 
@@ -94,7 +146,6 @@ article.project a, h3 a {
         max-height: 140px;
         height: unset;
     }
-    #logo { width: 35ch; }
 }
 
 /* Reflow welcome logo */
@@ -110,7 +161,9 @@ article.project a, h3 a {
         text-align: center;
         padding: 0;
         margin-top: 40px;
-        max-width: 90vw;
+    }
+    nav#nav2 {
+        margin-top: 1ch;
     }
 
     nav a {
@@ -124,13 +177,13 @@ article.project a, h3 a {
     }
 }
 
-/* is this really necessary??? */
 @media screen and (max-width: 480px) {
     #logo, #logo img {
         max-height: 140px;
         height: unset;
         text-align: left;
     }
+    #logo { width: 35ch; }
     #lpartition {
         height: unset;
         width: inherit;
@@ -142,7 +195,7 @@ article.project a, h3 a {
         width: 20ch;
     }
 
-    article img {
+    article:not(.project) img {
         max-width: 100%;
     }
 }
