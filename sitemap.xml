@@ -13,9 +13,21 @@
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://thesola.io/projects</loc>
+        <loc>https://thesola.io/developer</loc>
         <priority>0.6</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2023-02-25</lastmod>
+        <lastmod>2024-02-20</lastmod>
+    </url>
+    <url>
+        <loc>https://thesola.io/nixer</loc>
+        <priority>0.59</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2024-02-20</lastmod>
+    </url>
+    <url>
+        <loc>https://thesola.io/sysadmin</loc>
+        <priority>0.58</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2024-02-20</lastmod>
     </url>
 </urlset>
