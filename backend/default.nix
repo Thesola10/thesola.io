@@ -1,7 +1,7 @@
 { pkgs, stdenv, python3Packages, ... }:
 
 python3Packages.buildPythonApplication {
-  name = "thesola.io-api";
+  name = "thesola-io-api";
   pyproject = true;
 
   src = ./.;
