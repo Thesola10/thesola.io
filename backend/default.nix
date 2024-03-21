@@ -8,6 +8,8 @@ python3Packages.buildPythonApplication {
 
   nativeBuildInputs = with pkgs; with python3Packages;
   [ pylast
+    flask
     setuptools
+    cachetools
   ];
 }
