@@ -1,0 +1,41 @@
+name: deploy-to-pages
+
+on:
+    push:
+        paths:
+            - 'frontend/**'
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+
+jobs:
+    static-build:
+        name: Build static website artifact
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+            with:
+                submodules: recursive
+          - name: Upload artifact
+            uses: actions/upload-pages-artifact@v2
+            with:
+                name: built-website
+                path: frontend
+
+    gh-deploy:
+        name: Deploy to GitHub Pages
+        needs: static-build
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/master'
+        environment:
+          name: github-pages
+          url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+          - name: Push to Pages
+            uses: actions/deploy-pages@v2
+            with:
+              artifact_name: built-website
