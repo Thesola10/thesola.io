@@ -16,5 +16,6 @@
 
         venvDir = ".venv";
       };
-    });
+    })
+  // { nixosModules.default = import ./backend/nixos; };
 }
