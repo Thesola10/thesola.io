@@ -25,7 +25,7 @@ options.services.thesola-io-api = with lib; {
   package = mkOption {
     type = types.package;
     description = "The API server package to use.";
-    default = import ../.;
+    default = pkgs.thesola-io-api;
   };
 
   envFile = mkOption {
@@ -35,16 +35,20 @@ options.services.thesola-io-api = with lib; {
   };
 };
 
-config = lib.mkIf cfg.enable
-{ systemd.services."thesola-io-uwsgi" =
-  { description = "thesola.io API server";
-    path = with pkgs; [ cfg.package uwsgi ];
-    serviceConfig =
-    { ExecStart = "";
-      EnvironmentFile = cfg.envFile;
-    };
-    wantedBy = [ "default.target" ];
-    enable = true;
+config.nixpkgs.overlays =
+  [ (final: prev: { thesola-io-api = prev.callPackage ./.; }) ];
+
+config.services = lib.mkIf cfg.enable
+{ uwsgi.enable = true;
+  uwsgi.instance.type = "emperor";
+  uwsgi.instance.vassals = {
+      "thesola-io-api" = {
+        type = "normal";
+        pythonPackages = self: with self; [ cfg.package ];
+        socket = "${cfg.host}:${cfg.port}";
+        module = "thesola_io_api.wsgi";
+        env = "@(${cfg.envFile})";
+      };
   };
 };
 }
