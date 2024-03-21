@@ -33,6 +33,28 @@
                                     content="Software developer, NixOS package maintainer, Linux sysadmin."/>
     <meta property="twitter:image"  content="https://thesola.io/favicon.png"/>
 
+    <script>
+        const apiHost = "https://api.thesola.io/mysite/unstable";
+        //const apiHost = "http://127.0.0.1:5000";
+
+        function apiSend(path, method, value) {
+            return new Promise(function (resolve, reject) {
+                var XHR = new XMLHttpRequest();
+                XHR.onload = function(e) {
+                    if (XHR.status >= 400) {
+                        reject(XHR.response);
+                    } else {
+                        resolve(XHR.response);
+                    }
+                };
+                XHR.onerror = reject;
+                XHR.open(method, apiHost + path);
+                XHR.setRequestHeader("Content-Type", "application/json");
+                XHR.send(JSON.stringify(value));
+            });
+        }
+    </script>
+
 </head>
 <body>
     <div id="viewport">
@@ -55,7 +77,8 @@
           </nav>
         <br/>
         <div id="termport">
-            <pre>you know, web frontend dev isn't really my specialty…</pre>
+            <pre id="motd" style="display: none;"></pre>
+            <pre id="motd-placeholder">you know, web frontend dev isn't really my specialty…</pre>
             <pre>&#10095; <br></pre>
         </div>
         <!-- Mastodon verification link -->
@@ -85,6 +108,8 @@
           [ "rin-chaaaaaaan!",             null                          ],
           [ "managed to exit vim",         null                          ]
         ];
+        var mo = document.getElementById("motd");
+        var mp = document.getElementById("motd-placeholder");
         var tl = document.getElementById("tagline");
         var ri = Math.floor(Math.random() * taglines.length);
         tl.textContent = taglines[ri][0];
@@ -99,6 +124,20 @@
             tl.classList.add("reveal1")
             tl.insertAdjacentElement('afterend', tl2);
         }
+        apiSend('/nowplaying', 'GET').then((r) => {
+            o = JSON.parse(r);
+            if (o.playing) {
+                mo.innerHTML = "Listening to "
+                             + "<a href=\""+o.lastfm_url+"\">"
+                             + o.artist+" - "+o.title
+                             + "</a> &#xf886;";
+                mp.style = "display: none;"
+                mo.style = "";
+            } else {
+                mp.style = "";
+                mo.style = "display: none;"
+            }
+        }).catch(() => { mp.style = ""; mo.style = "display: none"; });
     </script>
 </body>
 </html>

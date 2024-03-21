@@ -4,6 +4,7 @@ description = "Backend API services for thesola.io"
 dependencies = [
     "pylast",
     "flask",
+    "flask-cors",
     "cachetools"
 ]
 dynamic = [ "version" ]
