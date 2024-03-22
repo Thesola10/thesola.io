@@ -1,12 +1,12 @@
 { pkgs, stdenv, python3Packages, ... }:
 
-python3Packages.buildPythonApplication {
+python3Packages.buildPythonPackage {
   name = "thesola-io-api";
   pyproject = true;
 
   src = ./.;
 
-  nativeBuildInputs = with pkgs; with python3Packages;
+  propagatedBuildInputs = with pkgs; with python3Packages;
   [ pylast
     flask
     flask-cors
