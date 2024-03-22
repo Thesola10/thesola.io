@@ -137,6 +137,19 @@ article.project img {
 }
 
 
+#githublink {
+    font-family: var(--font-icons);
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    font-size: 80px;
+    color: rgba(180,180,180,.3);
+}
+
+#githublink:hover {
+    color: rgba(180,180,180,.6);
+}
+
 /********** RESPONSIVE **********/
 @media screen and (max-height: 720px) {
     #lpartition {
