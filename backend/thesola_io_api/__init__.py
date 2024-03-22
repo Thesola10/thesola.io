@@ -1,7 +1,8 @@
 from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS, cross_origin
+from dotenv import load_dotenv, dotenv_values
 
-from .nowplaying import get_nowplaying
+import os
 
 __version__ = "0.dev1"
 
@@ -9,14 +10,11 @@ app = Flask(__name__)
 cors = CORS(app,
             origins = ["http://127.0.0.1:8080", "https://thesola.io"],
             methods = ['GET'])
+
+if (os.getenv("API_ENVFILE")):
+    app.config.from_mapping(dotenv_values(os.getenv("API_ENVFILE")))
+    load_dotenv(os.environ["API_ENVFILE"])
+
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/', methods=['GET'])
-@cross_origin()
-def hello():
-    return jsonify(who="thesola.io-api"), 200
-
-@app.route('/nowplaying', methods=['GET'])
-@cross_origin()
-def nowplaying():
-    return jsonify(get_nowplaying())
+from .app import *

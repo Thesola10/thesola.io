@@ -1,10 +1,16 @@
 from cachetools import cached, TTLCache
+from dotenv import load_dotenv
+
+from . import app
 
 import os
 import time
 import pylast
 
-API_KEY = os.getenv('LASTFM_API_KEY')
+try:
+    API_KEY = os.environ['LASTFM_API_KEY']
+except:
+    API_KEY = app.config['LASTFM_API_KEY']
 USER = "thesola10"
 
 @cached(TTLCache(maxsize=256, ttl=3600*24))
