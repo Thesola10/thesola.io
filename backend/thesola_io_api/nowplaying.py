@@ -4,7 +4,7 @@ import os
 import time
 import pylast
 
-API_KEY = os.environ['LASTFM_API_KEY']
+API_KEY = os.getenv('LASTFM_API_KEY')
 USER = "thesola10"
 
 @cached(TTLCache(maxsize=256, ttl=3600*24))

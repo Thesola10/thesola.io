@@ -48,7 +48,7 @@ config.services = lib.mkIf cfg.enable
         pythonPackages = self: with self; [ cfg.package ];
         http = "${cfg.host}:${builtins.toString cfg.port}";
         module = "thesola_io_api.wsgi";
-        env = "@(${cfg.envFile})";
+        env = [ "API_ENVFILE=${cfg.envFile}" ];
         plugins = [ "python3" ];
       };
   };

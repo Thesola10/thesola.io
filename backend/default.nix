@@ -12,5 +12,6 @@ python3Packages.buildPythonApplication {
     flask-cors
     setuptools
     cachetools
+    python-dotenv
   ];
 }
