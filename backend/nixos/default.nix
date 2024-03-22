@@ -36,7 +36,7 @@ options.services.thesola-io-api = with lib; {
 };
 
 config.nixpkgs.overlays =
-  [ (final: prev: { thesola-io-api = prev.callPackage ./.; }) ];
+  [ (final: prev: { thesola-io-api = prev.callPackage ../. {}; }) ];
 
 config.services = lib.mkIf cfg.enable
 { uwsgi.enable = true;
@@ -49,7 +49,7 @@ config.services = lib.mkIf cfg.enable
         http = "${cfg.host}:${builtins.toString cfg.port}";
         module = "thesola_io_api.wsgi";
         env = [ "API_ENVFILE=${cfg.envFile}" ];
-        plugins = [ "python3" ];
+        plugin = "python3";
       };
   };
 };
