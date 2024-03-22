@@ -40,6 +40,7 @@ config.nixpkgs.overlays =
 
 config.services = lib.mkIf cfg.enable
 { uwsgi.enable = true;
+  uwsgi.plugins = [ "python3" ];
   uwsgi.instance.type = "emperor";
   uwsgi.instance.vassals = {
       "thesola-io-api" = {
@@ -48,6 +49,7 @@ config.services = lib.mkIf cfg.enable
         http = "${cfg.host}:${builtins.toString cfg.port}";
         module = "thesola_io_api.wsgi";
         env = "@(${cfg.envFile})";
+        plugins = [ "python3" ];
       };
   };
 };
