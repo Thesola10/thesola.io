@@ -211,4 +211,17 @@ article.project img {
     article:not(.project) img {
         max-width: 100%;
     }
+
+    article.project {
+        flex-direction: column;
+    }
+    article.project > p {
+        position: unset;
+        align-self: start;
+    }
+    article.project img {
+        height: 90px;
+        margin-bottom: 10px;
+        object-fit: contain;
+    }
 }
