@@ -16,7 +16,7 @@
         <loc>https://thesola.io/developer</loc>
         <priority>0.6</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2024-02-20</lastmod>
+        <lastmod>2024-10-10</lastmod>
     </url>
     <url>
         <loc>https://thesola.io/nixer</loc>
@@ -28,6 +28,6 @@
         <loc>https://thesola.io/sysadmin</loc>
         <priority>0.58</priority>
         <changefreq>monthly</changefreq>
-        <lastmod>2024-02-20</lastmod>
+        <lastmod>2024-10-15</lastmod>
     </url>
 </urlset>
