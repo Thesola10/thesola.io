@@ -21,7 +21,7 @@ jobs:
             with:
                 submodules: recursive
           - name: Upload artifact
-            uses: actions/upload-pages-artifact@v2
+            uses: actions/upload-pages-artifact@v3
             with:
                 name: built-website
                 path: frontend
@@ -36,6 +36,6 @@ jobs:
           url: ${{ steps.deployment.outputs.page_url }}
         steps:
           - name: Push to Pages
-            uses: actions/deploy-pages@v2
+            uses: actions/deploy-pages@v4
             with:
               artifact_name: built-website
