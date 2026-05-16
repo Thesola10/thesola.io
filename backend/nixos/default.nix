@@ -28,8 +28,20 @@ options.services.thesola-io-api = with lib; {
     default = pkgs.thesola-io-api;
   };
 
+  badgeSkel = mkOption {
+    type = types.path;
+    description = "Path to the skeleton directory for the badge dispensary.";
+    default = "/srv/thesola-io-api/badge";
+  };
+
+  badgeIndex = mkOption {
+    type = types.path;
+    description = "Path to the file containing valid badge IDs.";
+    default = "/srv/thesola-io-api/badges.lst";
+  };
+
   envFile = mkOption {
-    type = types.str;
+    type = types.path;
     description = "Path to the file containing environment variables and secrets.";
     example = "/srv/thesola-io-api/env.txt";
   };
@@ -48,7 +60,11 @@ config.services = lib.mkIf cfg.enable
         pythonPackages = self: with self; [ cfg.package ];
         http = "${cfg.host}:${builtins.toString cfg.port}";
         module = "thesola_io_api.wsgi";
-        env = [ "API_ENVFILE=${cfg.envFile}" ];
+        env = [
+          "API_ENVFILE=${cfg.envFile}"
+          "BADGE_SKEL=${cfg.badgeSkel}"
+          "BADGE_INDEX=${cfg.badgeIndex}"
+        ];
         plugin = "python3";
       };
   };
