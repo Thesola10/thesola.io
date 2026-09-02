@@ -1,7 +1,7 @@
 import nerdfont
 
 JINJA_FILTERS = {
-        'nf': lambda name: nerdfont.icons[name],
+        'icon': lambda name: nerdfont.icons[name],
 }
 
 AUTHOR = 'Karim Vergnes'
