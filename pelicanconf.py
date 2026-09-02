@@ -1,7 +1,7 @@
-import nerdfonts
+import nerdfont
 
 JINJA_FILTERS = {
-    'nf': lambda name: nerdfonts.icons.get(name, '?'),
+        'nf': lambda name: nerdfont.icons[name],
 }
 
 AUTHOR = 'Karim Vergnes'
@@ -35,7 +35,7 @@ TAGLINES = (
         ("nix-shell -p peace_quiet",    "TODO: port to flake"         ),
         ("#[do_not_crash]",             None                          ),
         ("meaningOfLife :: IO ()",      None                          ),
-        ("サ・ソーラ・テン",            None                          ),
+        ("ザ・ソーラ・テン",            None                          ),
         ("Unregistered HyperCam 2",     None                          ),
         ("xkcd/838 compliant",          None                          ),
         ("raised by cd-roms",           None                          ),
@@ -52,13 +52,13 @@ TAGLINES = (
 )
 
 
-SOCIAL = (('Mail', 'mailto:me@thesola.io'),
-          ('GitHub', 'https://github.com/thesola10'),
-          ('Fediverse', 'https://thesola.io/@me'),
-          ('Twitter', 'https://twitter.com/itsthesola10'),
-          ('LinkedIn', 'https://linkedin.com/in/thesola10'),
-          ('Last.fm', 'https://www.last.fm/user/thesola10'),
-          ('Reddit', 'https://reddit.com/u/thesola10')
+SOCIAL = (('nf-md-mail', 'mailto:me@thesola.io'),
+          ('nf-fa-github', 'https://github.com/thesola10'),
+          ('nf-md-mastodon', 'https://thesola.io/@me'),
+          ('nf-fa-twitter', 'https://twitter.com/itsthesola10'),
+          ('nf-fa-linkedin_square', 'https://linkedin.com/in/thesola10'),
+          ('nf-fa-lastfm', 'https://www.last.fm/user/thesola10'),
+          ('nf-fa-reddit_alien', 'https://reddit.com/u/thesola10')
          )
 
 PLUGINS = [ 'sitemap', 'pelican_alias' ]

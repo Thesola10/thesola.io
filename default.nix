@@ -42,17 +42,17 @@ let
       };
     };
 
-  nerdfonts = with pkgs.python3Packages;
+  nerdfont = with pkgs.python3Packages;
     buildPythonPackage rec {
-      pname = "nerdfonts";
-      version = "1.0.1";
+      pname = "nerdfont";
+      version = "3.4.0.post1";
 
       pyproject = true;
       build-system = [ setuptools ];
 
       src = fetchPypi
       { inherit pname version;
-        sha256 = "sha256-/rBbdkhxkJ4braxKQeleFJKXyzcPpcj5oKTRQUPoaxA=";
+        sha256 = "sha256-D3axd5NaCUAIQqACUB7WnzxCYsjD8zOoOa0aqlLItsQ=";
       };
     };
 in pkgs.stdenv.mkDerivation {
@@ -65,7 +65,7 @@ in pkgs.stdenv.mkDerivation {
     markdown
     pelican-sitemap
     pelican-alias
-    nerdfonts
+    nerdfont
   ];
 
   buildPhase = ''
