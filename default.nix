@@ -42,6 +42,19 @@ let
       };
     };
 
+  nerdfonts = with pkgs.python3Packages;
+    buildPythonPackage rec {
+      pname = "nerdfonts";
+      version = "1.0.1";
+
+      pyproject = true;
+      build-system = [ setuptools ];
+
+      src = fetchPypi
+      { inherit pname version;
+        sha256 = "sha256-/rBbdkhxkJ4braxKQeleFJKXyzcPpcj5oKTRQUPoaxA=";
+      };
+    };
 in pkgs.stdenv.mkDerivation {
   name = "blog.thesola.io";
   dontInstall = true;
@@ -52,6 +65,7 @@ in pkgs.stdenv.mkDerivation {
     markdown
     pelican-sitemap
     pelican-alias
+    nerdfonts
   ];
 
   buildPhase = ''
