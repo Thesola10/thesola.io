@@ -7,6 +7,7 @@ JINJA_FILTERS = {
 AUTHOR = 'Karim Vergnes'
 SITENAME = 'Karim Vergnes'
 SITEURL = ''
+SITELOGO = '/images/logo.png'
 
 THEME = 'theme'
 PATH = 'content'
@@ -56,9 +57,9 @@ SOCIAL = (('nf-md-mail', 'mailto:me@thesola.io'),
           ('nf-fa-github', 'https://github.com/thesola10'),
           ('nf-md-mastodon', 'https://thesola.io/@me'),
           ('nf-fa-twitter', 'https://twitter.com/itsthesola10'),
+          ('nf-fa-reddit_alien', 'https://reddit.com/u/thesola10'),
           ('nf-fa-linkedin_square', 'https://linkedin.com/in/thesola10'),
           ('nf-fa-lastfm', 'https://www.last.fm/user/thesola10'),
-          ('nf-fa-reddit_alien', 'https://reddit.com/u/thesola10')
          )
 
 PLUGINS = [ 'sitemap', 'pelican_alias' ]

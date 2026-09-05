@@ -35,11 +35,11 @@
     "pelicanTheme": {
       "flake": false,
       "locked": {
-        "lastModified": 1788345944,
-        "narHash": "sha256-NWP0z6r1Sfz8qtLRRPvB+ouq6CoSRjU8La2/O9cEuAo=",
+        "lastModified": 1788591287,
+        "narHash": "sha256-Mkf7SJOUe0X259lcsuLQ5bonKKfbIMvTSOmUP2i6LTw=",
         "owner": "thesola10",
         "repo": "pelican-thesola.io",
-        "rev": "bab73328ede25f98a3ed9c88c12b37c72b045ffc",
+        "rev": "8cc386d358e6e0fd9d87de0f3b26c50f7d0921a9",
         "type": "github"
       },
       "original": {
