@@ -8,6 +8,7 @@ AUTHOR = 'Karim Vergnes'
 SITENAME = 'Karim Vergnes'
 SITEURL = ''
 SITELOGO = '/images/logo.png'
+FOOTER_TEXT = '© 2023-2026 Karim Vergnes. All Rights Reserved.'
 
 THEME = 'theme'
 PATH = 'content'
@@ -18,16 +19,16 @@ TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = 'en'
 
-PAGE_URL = '{slug}'
+PAGE_URL = '/{slug}'
 PAGE_SAVE_AS = '{slug}/index.html'
 
 PAGE_LANG_URL = '{lang}/{slug}'
 PAGE_LANG_SAVE_AS = '{lang}/{slug}/index.html'
 
 MENUITEMS = (
-        ('developer', 'developer'),
-        ('artist', 'artist'),
-        ('storyteller', 'storyteller')
+        ('developer', '/developer'),
+        ('artist', '/artist'),
+        ('storyteller', '/storyteller')
 )
 
 TAGLINES = (
