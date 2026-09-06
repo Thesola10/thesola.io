@@ -1,41 +1,46 @@
-name: deploy-to-pages
+name: deploy-to-github
 
 on:
-    push:
-        paths:
-            - 'frontend/**'
-
-permissions:
-    contents: read
-    pages: write
-    id-token: write
-
+  push:
+    paths:
+      - 'content/**'
+      - 'pelicanconf.py'
+      - 'publishconf.py'
+      - 'theme'
 
 jobs:
-    static-build:
-        name: Build static website artifact
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
-            with:
-                submodules: recursive
-          - name: Upload artifact
-            uses: actions/upload-pages-artifact@v3
-            with:
-                name: built-website
-                path: frontend
-
-    gh-deploy:
-        name: Deploy to GitHub Pages
-        needs: static-build
-        runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/master'
-        environment:
-          name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }}
-        steps:
-          - name: Push to Pages
-            uses: actions/deploy-pages@v4
-            with:
-              artifact_name: built-website
+  pelican-build:
+    name: Build website using Pelican
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Install Pelican
+        run: pip install pelican
+      - name: Install Pelican plugins
+        run: pip install -r requirements.txt
+      - name: Build website with Pelican
+        run: pelican content -s publishconf.py -t "theme"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          name: built-website
+          path: output
+  pages-deploy:
+    name: Deploy to GitHub Pages
+    needs: pelican-build
+    runs-on: ubuntu-latest
+    if: github.refs == 'refs/heads/master'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Push to Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: built-website
