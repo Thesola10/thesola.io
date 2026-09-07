@@ -2,3 +2,4 @@ pelican-sitemap
 pelican-alias
 markdown
 nerdfont
+git+https://github.com/thesola10/thesola.io-nowplaying.git
